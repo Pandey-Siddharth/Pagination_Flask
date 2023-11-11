@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Pagination</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Pagination Using Flask</h1>
+<ul>
+  {% for item in items_on_page %}
+  <li>{{item}}</li>
+  {% endfor %}
+</ul>
+{% if page > 1 %}
+<a href="{{ url_for('index',page=page-1) }}">Previous</a>
+{% endif %}
+{% if page < total_pages %}
+<a href="{{ url_for('index',page=page+1) }}">Next</a>
+{% endif %}
+
+</body>
+</html>
